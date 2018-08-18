@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
-import { Map } from 'react-arcgis';
+import React, { Component } from '../../../../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react';
+import { Scene } from 'react-arcgis';
 
+import LocationMark from  '../../components/LocationMark/LocationMark';
 import './ArcAgeSearch.css';
 
 /*======================================================================
-// This container will house the map for the project.
+// This container will perform high level operations for the project
+// including handling GET request to the API, in addition to mapping
+// renders for the display of location marks on the map.
 ======================================================================*/
 class ArcAgeSearch extends Component {
 
@@ -12,7 +15,9 @@ class ArcAgeSearch extends Component {
         return (
             <div className="arc-map-container">
                 <div className="arc-map">
-                    <Map />
+                    <Scene>
+                        <Locations />
+                    </Scene>
                 </div>
             </div>
         )
