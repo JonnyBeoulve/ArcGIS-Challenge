@@ -10,26 +10,26 @@ class LocationPoint extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            graphic: null
+            graphic: null,
         };
     }
  
-    render() {
-        return null;
-    }
- 
-    componentWillMount() {
+    // Upon an instance of this component being mounted, define the values
+    // for presentation and integration of a point on the map before pushing
+    // it to state.
+    componentDidMount() {
         loadModules(['esri/Graphic']).then(([ Graphic ]) => {
-            // Create a polygon geometry
+            
+            // Create a point located based on the person's long/lat
             const point = {
                 type: "point", // autocasts as new Point()
-                longitude: -22.168051,
-                latitude: 87.485721
+                latitude: this.props.personLatitude,
+                longitude: this.props.personLongitude
             };
  
-            // Create a symbol for rendering the graphic
+            // Define the symbol for the point
             const pointSymbol = {
-                type: "simple-marker", // autocasts as new SimpleFillSymbol()
+                type: "simple-marker", // Autocasts as new SimpleFillSymbol()
                 color: [255, 0, 0, 0.8],
                 height: 15,
                 width: 15,
@@ -39,14 +39,15 @@ class LocationPoint extends Component {
                 }
             };
 
+            // Define attributes for the point, which will be displayed to the user
             const pointAtt = {
-                Name: 'Salinas Reyes',
-                Age: '27',
-                Latitude: '-22.168051',
-                Longitude: '87.485721'
+                Name: this.props.personName,
+                Age: this.props.personAge,
+                Latitude: this.props.personLatitude,
+                Longitude: this.props.personLongitude
             }
 
-
+            // Intantiate object from class to be pushed to state.
             const graphic = new Graphic({
                 geometry: point,
                 symbol: pointSymbol,
@@ -66,9 +67,14 @@ class LocationPoint extends Component {
                 }
               });
  
+              // Instantiate graphic
             this.setState({ graphic });
             this.props.view.graphics.add(graphic);
         })
+    }
+     
+    render() {
+        return null;
     }
 }
 
