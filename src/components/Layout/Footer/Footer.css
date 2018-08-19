@@ -1,7 +1,12 @@
 .footer {
-    background-color: #1a1a1a;
-    line-height: 400px;
-    color: white;
-    height: 400px;
-    text-align: center;
-  }
+  height: 300px;
+  background-color: #1a1a1a;
+  line-height: 300px;
+  color: white;
+  text-align: center;
+}
+
+.footer p {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}

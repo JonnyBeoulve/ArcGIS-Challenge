@@ -6,6 +6,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+/* Global styling overrides */
 input:focus,
 select:focus,
 textarea:focus,
@@ -19,4 +20,8 @@ a:visited {
 
 a:visited:hover {
   color: #ffe800;
+}
+
+table {
+  text-align: left;
 }

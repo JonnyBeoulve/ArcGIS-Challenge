@@ -1,8 +1,6 @@
 .arc-map {
-    height: 70vh;
-    width: 90vw;
-    margin: 10px 0 400px 0;
-    padding: 0px 80px 0px 80px
+    height: 90vh;
+    margin: 5px 0 5px 0;
 }
 
 .arc-map-input-filter {
@@ -37,4 +35,58 @@
     font-family: inherit;
     color: #fff;
     z-index: 100;
+}
+
+/* Map UI CSS fixes */
+.esri-ui {
+    padding: 10px 10px 10px 10px;
+    position: absolute;
+    width: 220px;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    color: white;
+    font-family: inherit;
+    font-size: 0.9em;
+    background-color: #1a1a1a6b;
+    border-right: 1px solid #1a1a1aa2;
+    text-align: center;
+}
+
+.esri-feature__content-element {
+    padding: 0 30px 0 30px;
+    margin-bottom: 10px;
+}
+
+.esri-widget {
+    margin: 0 0 10px 0;
+}
+
+.esri-ui-corner-container {
+    padding: 20px 5px 20px 5px;
+    background-color: #1a1a1aab;
+    border-radius: 3px;
+}
+
+.esri-attribution {
+    display: none;
+}
+
+.esri-popup__feature-menu-header {
+    display: none;
+}
+
+.esri-widget--button:hover {
+    cursor: pointer;
+    color: #ffe800;
+}
+
+.esri-popup__actions:hover {
+    cursor: pointer;
+    color: #ffe800;
+}
+
+.esri-feature__field-header {
+    list-style: none;
+    padding-left: 0;
 }

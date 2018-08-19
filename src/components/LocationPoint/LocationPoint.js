@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { loadModules } from 'react-arcgis';
  
 /*======================================================================
@@ -33,6 +33,7 @@ class LocationPoint extends Component {
                 color: [255, 0, 0, 0.8],
                 height: 15,
                 width: 15,
+                cursor: "pointer",
                 outline: { // autocasts as new SimpleLineSymbol()
                     color: [0, 0, 0],
                     width: 1

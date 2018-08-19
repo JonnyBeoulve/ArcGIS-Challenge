@@ -19,25 +19,25 @@ class ArcAge extends Component {
             alert: '',
             ageFilter: '',
             data: people,
-            dataFilteredByAge: [],
+            dataFilteredByAge: []
         };
     }
 
-    // Once the user presses enter after typing in an age, this
-    // will filter all data to only include people who match
-    // the input age.
+    // Once the user presses enter after typing in an age, this will filter 
+    // all data to only include people who match the input age. We will
+    // display a filtering alert and total matches during the process.
     handleFilterByAge = (e) => {
         e.preventDefault();
+        const filteredArray = this.state.data.filter((person) => {
+            if (person.age.toString() === this.state.ageFilter) return person;
+            else return false;
+        })
+        const matchesFoundText = `${filteredArray.length} matches found.`;
 
         this.handleDisplayAlert('Filtering...');
         this.setState({
             dataFilteredByAge: []
         })
-
-        const filteredArray = this.state.data.filter((person) => {
-            if (person.age.toString() === this.state.ageFilter) return person;
-        })
-        const matchesFoundText = `${filteredArray.length} matches found.`;
         setTimeout(() => {
             this.handleDisplayAlert(matchesFoundText);
         }, 1500);
@@ -45,8 +45,6 @@ class ArcAge extends Component {
         this.setState({
             dataFilteredByAge: [...filteredArray]
         })
-
-
     }
 
     // Show alert text for 1.5 seconds in middle of map.
