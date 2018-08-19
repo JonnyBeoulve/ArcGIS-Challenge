@@ -26,3 +26,15 @@
     opacity: 0.8;
     border: 2px solid #ffe800;
 }
+
+.arc-map-alert {
+    position: absolute;
+    top: 340px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    font-size: 2em;
+    font-family: inherit;
+    color: #fff;
+    z-index: 100;
+}
