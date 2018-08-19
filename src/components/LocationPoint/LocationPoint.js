@@ -17,7 +17,7 @@ class LocationPoint extends Component {
     // Upon an instance of this component being mounted, define the values
     // for presentation and integration of a point on the map before pushing
     // it to state.
-    componentDidMount() {
+    componentDidMount = () => {
         loadModules(['esri/Graphic']).then(([ Graphic ]) => {
             
             // Create a point located based on the person's long/lat
@@ -71,6 +71,12 @@ class LocationPoint extends Component {
             this.setState({ graphic });
             this.props.view.graphics.add(graphic);
         })
+    }
+
+    // When a new filtered array populates the map, remove previous graphics
+    // to unrender unapplicable data.
+    componentWillUnmount() {
+        this.props.view.graphics.remove(this.state.graphic);
     }
      
     render() {

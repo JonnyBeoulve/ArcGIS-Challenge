@@ -9,31 +9,55 @@ import people from '../../store/people.json';
 
 /*======================================================================
 // This container will perform high level operations for the project
-// including handling GET request to the API, in addition to mapping
-// renders for the display of location marks on the map.
+// including setting the data file to state, providing an input filter
+// by the user, and rendering the map along with visible points.
 ======================================================================*/
 class ArcAge extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: people
+            ageFilter: '',
+            data: people,
+            dataFilteredByAge: []
         };
+    }
+
+    // Once the user presses enter after typing in an age, this
+    // will filter all data to only include people who match
+    // the input age.
+    handleFilterByAge = (e) => {
+        e.preventDefault();
+
+        this.setState({
+            dataFilteredByAge: []
+        })
+
+        const filteredArray = this.state.data.filter((person) => {
+            if (person.age.toString() === this.state.ageFilter) return person;
+        })
+
+        this.setState({
+            dataFilteredByAge: [...filteredArray]
+        })
     }
 
     render() {
         return (
             <div className="arc-map-container">
                 <div className="arc-map">
+                    <form onSubmit={this.handleFilterByAge}>
+                        <input className="arc-map-input-filter" type="text" name="age" label="Age" placeholder="Filter by age" onChange={e => this.setState({ ageFilter: e.target.value })} />
+                    </form>
                     <Scene>
-                        {(this.state.data)
-                            ? this.state.data.map((person, index) => {
+                        {(this.state.dataFilteredByAge)
+                            ? this.state.dataFilteredByAge.map((person) => {
                                 return (
                                     <LocationPoint
                                         key={person._id}
-                                        personName={this.state.data[index].name} 
-                                        personAge={this.state.data[index].age} 
-                                        personLatitude={this.state.data[index].latitude} 
-                                        personLongitude={this.state.data[index].longitude} 
+                                        personName={person.name} 
+                                        personAge={person.age} 
+                                        personLatitude={person.latitude} 
+                                        personLongitude={person.longitude} 
                                     />
                                 )
                             })
