@@ -53,6 +53,13 @@
     text-align: center;
 }
 
+.esri-ui::before {
+    position: relative;
+    content: 'Menu';
+    font-size: 2em;
+    border-bottom: 2px solid #ffe800;
+}
+
 .esri-feature__content-element {
     padding: 0 30px 0 30px;
     margin-bottom: 10px;
@@ -63,6 +70,7 @@
 }
 
 .esri-ui-corner-container {
+    margin: 10px 0 0 0;
     padding: 20px 5px 20px 5px;
     background-color: #1a1a1aab;
     border-radius: 3px;
@@ -81,9 +89,14 @@
     color: #ffe800;
 }
 
+.esri-popup__header-title--button:hover {
+    cursor: pointer;
+}
+
 .esri-popup__actions:hover {
     cursor: pointer;
     color: #ffe800;
+    background-color: #1a1a1aa2;
 }
 
 .esri-feature__field-header {
