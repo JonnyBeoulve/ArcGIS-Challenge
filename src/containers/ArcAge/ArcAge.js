@@ -5,8 +5,19 @@ import LocationPoint from  '../../components/LocationPoint/LocationPoint';
 import UserGuide from  '../../components/UserGuide/UserGuide';
 import './ArcAge.css';
 
+import { fadeIn } from 'react-animations';
+import { StyleSheet, css } from 'aphrodite';
+
 // Local data solution
 import people from '../../store/people.json';
+
+// Animated styles using Aphrodite and React Animations.
+const styles = StyleSheet.create({
+    fadeIn: {
+      animationName: fadeIn,
+      animationDuration: '1s'
+    }
+  })
 
 /*======================================================================
 // This container will perform high level operations for the project
@@ -18,7 +29,7 @@ class ArcAge extends Component {
         super(props);
         this.state = {
             alert: '',
-            ageFilter: '',
+            ageFilter: '30',
             data: people,
             dataFilteredByAge: [],
             showGuide: false
@@ -82,27 +93,25 @@ class ArcAge extends Component {
     render() {
         return (
             <div className="arc-map-container">
-                <div className="arc-map">
+                <div className={["arc-map", css(styles.fadeIn)].join(' ')} >
                     <form onSubmit={this.handleFilterByAge}>
-                        <input className="arc-map-input-filter" type="text" name="age" label="Age" placeholder="Filter by age" onChange={e => this.setState({ ageFilter: e.target.value })} />
+                        <input className="arc-map-input-filter" type="text" name="age" label="Age" value={this.state.ageFilter} placeholder="Filter by age" onChange={e => this.setState({ ageFilter: e.target.value })} />
                     </form>
                     <button className="arc-user-guide-button" onClick={this.handleDisplayUserGuide}>User Guide</button>
                     {(this.state.showGuide && <UserGuide closeGuide={this.handleCloseUserGuide} />)}
                     {(this.state.alert && <div className="arc-map-alert">{this.state.alert}</div>)}
                     <Scene>
-                        {(this.state.dataFilteredByAge)
-                            ? this.state.dataFilteredByAge.map((person) => {
-                                return (
-                                    <LocationPoint
-                                        key={person._id}
-                                        personName={person.name} 
-                                        personAge={person.age} 
-                                        personLatitude={person.latitude} 
-                                        personLongitude={person.longitude} 
-                                    />
-                                )
-                            })
-                            : null }
+                        {(this.state.dataFilteredByAge && this.state.dataFilteredByAge.map((person) => {
+                            return (
+                                <LocationPoint
+                                    key={person._id}
+                                    personName={person.name} 
+                                    personAge={person.age} 
+                                    personLatitude={person.latitude} 
+                                    personLongitude={person.longitude} 
+                                />
+                            )})) 
+                        }
                     </Scene>
                 </div>
             </div>

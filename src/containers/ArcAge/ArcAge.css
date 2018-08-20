@@ -39,16 +39,17 @@
 
 .arc-user-guide-button {
     position: absolute;
-    padding: 0;
     margin: 0;
-    left: 65px;
-    top: 95%;
+    padding: 10px 60px 10px 60px;
+    left: 20px;
+    top: 92%;
     color: white;
-    font-size: 1.5em;
+    background-color: #1a1a1aab;
+    font-size: 1.2em;
     font-family: inherit;
     z-index: 100;
-    background: none;
     border: none;
+    border-radius: 3px;
 }
 
 .arc-user-guide-button:hover {
@@ -80,7 +81,7 @@
 }
 
 .esri-feature__content-element {
-    padding: 0 30px 0 30px;
+    padding: 0 40px 0 40px;
     margin-bottom: 10px;
 }
 
@@ -115,7 +116,6 @@
 .esri-popup__actions:hover {
     cursor: pointer;
     color: #ffe800;
-    background-color: #1a1a1aa2;
 }
 
 .esri-feature__field-header {

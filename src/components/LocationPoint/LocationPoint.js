@@ -3,8 +3,7 @@ import { loadModules } from 'react-arcgis';
  
 /*======================================================================
 // This component will create an object containing a graphic point
-// and attributes for each person result age filtered during the
-// GET request.
+// and attributes for each person result age filtered by user input.
 ======================================================================*/
 class LocationPoint extends Component {
     constructor(props) {
@@ -68,8 +67,10 @@ class LocationPoint extends Component {
                 }
               });
  
-              // Instantiate graphic
-            this.setState({ graphic });
+            // Instantiate graphic
+            this.setState({ 
+                graphic 
+            });
             this.props.view.graphics.add(graphic);
         })
     }
