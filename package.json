@@ -1,10 +1,9 @@
 {
   "name": "arcgis-challenge",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "For this coding challenge I'm using the ArcGIS API to build an interface in React that allows the user to filter a list of people and display their location on a 3D map. Map markers and attribute display functionality is incorporated into the user interface.",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
     "react": "^16.4.2",
     "react-arcgis": "^3.3.2",
     "react-dom": "^16.4.2",

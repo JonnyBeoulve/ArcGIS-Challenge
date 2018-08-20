@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Scene } from 'react-arcgis';
 
 import LocationPoint from  '../../components/LocationPoint/LocationPoint';
+import UserGuide from  '../../components/UserGuide/UserGuide';
 import './ArcAge.css';
 
-// Temporary data solution
+// Local data solution
 import people from '../../store/people.json';
 
 /*======================================================================
@@ -19,7 +20,8 @@ class ArcAge extends Component {
             alert: '',
             ageFilter: '',
             data: people,
-            dataFilteredByAge: []
+            dataFilteredByAge: [],
+            showGuide: false
         };
     }
 
@@ -60,8 +62,23 @@ class ArcAge extends Component {
         }, 1500);
     }
 
+    // Pop up user guide
+    handleDisplayUserGuide = () => {
+        this.setState({
+            showGuide: true
+        })
+    }
+
+    // Close user guide upon pressing X on the top right
+    handleCloseUserGuide = () => {
+        this.setState({
+            showGuide: false
+        })
+    }
+
     // Render the ArcMap, age filter input box, and any location points
-    // that match the user's filter.
+    // that match the user's filter. A user guide or alerts will display
+    // during certain state changes.
     render() {
         return (
             <div className="arc-map-container">
@@ -69,9 +86,9 @@ class ArcAge extends Component {
                     <form onSubmit={this.handleFilterByAge}>
                         <input className="arc-map-input-filter" type="text" name="age" label="Age" placeholder="Filter by age" onChange={e => this.setState({ ageFilter: e.target.value })} />
                     </form>
-                    {(this.state.alert)
-                        ? <div className="arc-map-alert">{this.state.alert}</div>
-                        : null }
+                    <button className="arc-user-guide-button" onClick={this.handleDisplayUserGuide}>User Guide</button>
+                    {(this.state.showGuide && <UserGuide closeGuide={this.handleCloseUserGuide} />)}
+                    {(this.state.alert && <div className="arc-map-alert">{this.state.alert}</div>)}
                     <Scene>
                         {(this.state.dataFilteredByAge)
                             ? this.state.dataFilteredByAge.map((person) => {
