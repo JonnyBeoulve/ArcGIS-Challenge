@@ -1,14 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import './Layout.css';
+import "./Layout.css";
 
 /*======================================================================
 // This will serve as a high level layout wrapper for the UI.
 ======================================================================*/
-const Layout = (props) => (
-    <main className="layout">
-        {props.children}
-    </main>
-);
+const Layout = props => <main className="layout">{props.children}</main>;
 
 export default Layout;

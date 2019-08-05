@@ -1,124 +1,124 @@
 .arc-map {
-    height: 90vh;
-    margin: 5px 0 5px 0;
+  height: 90vh;
+  margin: 5px 0 5px 0;
 }
 
 .arc-map-input-filter {
-    position: absolute;
-    top: 140px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    padding: 10px 10px 10px 10px;
-    width: 180px;
-    height: 20px;
-    border-radius: 3px;
-    border: 2px solid #1a1a1a;
-    font-family: inherit;
-    font-size: 1.1em;
-    opacity: .4;
-    z-index: 100;
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  padding: 10px 10px 10px 10px;
+  width: 180px;
+  height: 20px;
+  border-radius: 3px;
+  border: 2px solid #1a1a1a;
+  font-family: inherit;
+  font-size: 1.1em;
+  opacity: 0.4;
+  z-index: 100;
 }
 
 .arc-map-input-filter:focus {
-    opacity: 0.8;
-    border: 2px solid #ffe800;
+  opacity: 0.8;
+  border: 2px solid #ffe800;
 }
 
 .arc-map-alert {
-    position: absolute;
-    top: 340px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    font-size: 2em;
-    font-family: inherit;
-    color: #fff;
-    z-index: 100;
+  position: absolute;
+  top: 340px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-size: 2em;
+  font-family: inherit;
+  color: #fff;
+  z-index: 100;
 }
 
 .arc-user-guide-button {
-    position: absolute;
-    margin: 0;
-    padding: 10px 60px 10px 60px;
-    left: 20px;
-    top: 92%;
-    color: white;
-    background-color: #1a1a1aab;
-    font-size: 1.2em;
-    font-family: inherit;
-    z-index: 100;
-    border: none;
-    border-radius: 3px;
+  position: absolute;
+  margin: 0;
+  padding: 10px 60px 10px 60px;
+  left: 20px;
+  top: 92%;
+  color: white;
+  background-color: #1a1a1aab;
+  font-size: 1.2em;
+  font-family: inherit;
+  z-index: 100;
+  border: none;
+  border-radius: 3px;
 }
 
 .arc-user-guide-button:hover {
-    color: #ffe800;
-    cursor: pointer;
+  color: #ffe800;
+  cursor: pointer;
 }
 
 /* Map UI CSS fixes */
 .esri-ui {
-    padding: 10px 10px 10px 10px;
-    position: absolute;
-    width: 220px;
-    height: auto;
-    bottom: 0;
-    left: 0;
-    color: white;
-    font-family: inherit;
-    font-size: 0.9em;
-    background-color: #1a1a1a6b;
-    border-right: 1px solid #1a1a1aa2;
-    text-align: center;
+  padding: 10px 10px 10px 10px;
+  position: absolute;
+  width: 220px;
+  height: auto;
+  bottom: 0;
+  left: 0;
+  color: white;
+  font-family: inherit;
+  font-size: 0.9em;
+  background-color: #1a1a1a6b;
+  border-right: 1px solid #1a1a1aa2;
+  text-align: center;
 }
 
 .esri-ui::before {
-    position: relative;
-    content: 'Menu';
-    font-size: 2em;
-    border-bottom: 2px solid #ffe800;
+  position: relative;
+  content: "Menu";
+  font-size: 2em;
+  border-bottom: 2px solid #ffe800;
 }
 
 .esri-feature__content-element {
-    padding: 0 40px 0 40px;
-    margin-bottom: 10px;
+  padding: 0 40px 0 40px;
+  margin-bottom: 10px;
 }
 
 .esri-widget {
-    margin: 0 0 10px 0;
+  margin: 0 0 10px 0;
 }
 
 .esri-ui-corner-container {
-    margin: 10px 0 0 0;
-    padding: 20px 5px 20px 5px;
-    background-color: #1a1a1aab;
-    border-radius: 3px;
+  margin: 10px 0 0 0;
+  padding: 20px 5px 20px 5px;
+  background-color: #1a1a1aab;
+  border-radius: 3px;
 }
 
 .esri-attribution {
-    display: none;
+  display: none;
 }
 
 .esri-popup__feature-menu-header {
-    display: none;
+  display: none;
 }
 
 .esri-widget--button:hover {
-    cursor: pointer;
-    color: #ffe800;
+  cursor: pointer;
+  color: #ffe800;
 }
 
 .esri-popup__header-title--button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .esri-popup__actions:hover {
-    cursor: pointer;
-    color: #ffe800;
+  cursor: pointer;
+  color: #ffe800;
 }
 
 .esri-feature__field-header {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
